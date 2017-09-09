@@ -1,5 +1,5 @@
 {
-    "name": "zaknight/repository",
+    "name": "zatoday/repository",
     "description": "package repository basic for laravel",
     "authors": [
         {
@@ -7,7 +7,6 @@
             "email": "za@zatoday.com"
         }
     ],
-    "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
@@ -34,5 +33,7 @@
         "psr-4": {
             "ZAToday\\Repository\\Tests\\": "tests/"
         }
-    }
+    },
+    "license": "MIT",
+    "minimum-stability": "dev"
 }
