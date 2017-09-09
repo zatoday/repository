@@ -1,5 +1,8 @@
 # Laravel Repository
 [![Build Status](https://travis-ci.org/zatoday/repository.svg?branch=master)](https://travis-ci.org/zatoday/repository)
+[![License](https://poser.pugx.org/zatoday/repository/license)](https://packagist.org/packages/zatoday/repository)
+[![Total Downloads](https://poser.pugx.org/zatoday/repository/downloads)](https://packagist.org/packages/zatoday/repository)
+[![Monthly Downloads](https://poser.pugx.org/zatoday/repository/d/monthly)](https://packagist.org/packages/zatoday/repository)
 
 Laravel Repositories is a package for Laravel 5.5 which is used to abstract the database layer. This makes applications much easier to maintain.
 
@@ -8,7 +11,7 @@ Laravel Repositories is a package for Laravel 5.5 which is used to abstract the 
 Run the following command from you terminal:
 
  ```bash
- composer require "zatoday/repository"
+ composer require zatoday/repository
  ```
 
 ## Usage
