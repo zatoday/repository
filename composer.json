@@ -9,7 +9,8 @@
     },
     "homepage": "https://zatoday.com",
     "license": "MIT",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "ZA",
