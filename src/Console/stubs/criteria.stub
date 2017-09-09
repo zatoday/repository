@@ -1,0 +1,19 @@
+<?php
+
+namespace DummyNamespace;
+
+use ZAToday\Repository\Criteria;
+use ZAToday\Repository\Constracts\RepositoryInterface as Repository;
+
+class DummyClass extends Criteria {
+
+    /**
+     * Apply query to Eloquents
+     * @return query
+     */
+    public function apply($model, Repository $repository)
+    {
+        $query = $model; //Handle query
+        return $query;
+    }
+}

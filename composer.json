@@ -1,0 +1,18 @@
+{
+    "name": "zaknight/repository",
+    "description": "package repository basic for laravel",
+    "authors": [
+        {
+            "name": "ZA",
+            "email": "za@zatoday.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ZAToday\\Repository\\RepositoryServiceProvider"
+            ]
+        }
+    }
+}

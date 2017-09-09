@@ -1,0 +1,16 @@
+<?php
+
+namespace DummyNamespace;
+
+use ZAToday\Repository\Repository;
+
+class DummyClass extends Repository
+{
+    /**
+     * @return string
+     */
+    public function model()
+    {
+        return \DummyModelClass::class;
+    }
+}
