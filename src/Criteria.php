@@ -2,8 +2,7 @@
 
 namespace ZAToday\Repository;
 
-use ZAToday\Repository\Constracts\RepositoryInterface as Repository1;
-use ZAToday\Repository\Constracts\RepositoryInterface;
+use ZAToday\Repository\Constracts\RepositoryInterface as Repository;
 
 abstract class Criteria {
     /**
@@ -11,5 +10,5 @@ abstract class Criteria {
      * @param RepositoryInterface $repository
      * @return mixed
      */
-    public abstract function apply($model, Repository1 $repository);
+    public abstract function apply($model, Repository $repository);
 }

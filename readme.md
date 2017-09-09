@@ -16,39 +16,56 @@ Run the following command from you terminal:
 
 ## Usage
 
+Create new file Repository
+ ```bash
+ php artisan make:repository [options] [--] <name>
+ ```
+
+ Example:
+```bash
+// Create Repository is User
+
+php artisan make:repository User
+
+// Or create Repository is User and create model User
+
+php artisan make:repository -m User
+```
+
+
 ```php
 <?php
 
+
 namespace App\Repositories;
+
 
 use ZAToday\Repository\Repository;
 
-class FilmsRepository extends Repository {
+
+class User extends Repository {
 
     public function model() {
-        return App\Film::class;
+        return \App\User::class;
     }
 }
 ```
 
-By implementing ```model()``` method you telling repository what model class you want to use. Now, create ```App\Film``` model:
+By implementing ```model()``` method you telling repository what model class you want to use. Now, create ```App\User``` model:
 
 ```php
 <?php
 
+
 namespace App;
+
 
 use Illuminate\Database\Eloquent\Model;
 
-class Film extends Model {
 
-    protected $primaryKey = 'film_id';
+class User extends Model {
 
-    protected $table = 'film';
 
-    protected $casts = [
-        "rental_rate"       => 'float'
-    ];
 }
 ```
 
@@ -57,21 +74,24 @@ And finally, use the repository in the controller:
 ```php
 <?php
 
+
 namespace App\Http\Controllers;
 
-use App\Repositories\FilmsRepository as Film;
 
-class FilmsController extends Controller {
+use App\Repositories\User;
 
-    private $film;
 
-    public function __construct(Film $film) {
+class UserController extends Controller {
 
-        $this->film = $film;
+    private $user;
+
+    public function __construct(User $user) {
+
+        $this->user = $user;
     }
 
     public function index() {
-        return \Response::json($this->film->all());
+        return \Response::json($this->user->all());
     }
 }
 ```
@@ -159,17 +179,33 @@ $this->film->findWhere([
 
 Criteria is a simple way to apply specific condition, or set of conditions to the repository query. Your criteria class MUST extend the abstract ```ZAToday\Repository\Criteria``` class.
 
+Create new file Criteria:
+ ```bash
+ php artisan make:criteria
+ ```
+
+ Example:
+```bash
+// Create Criteria
+
+php artisan make:criteria UserMaxId
+
+// Or create Criteria with folder User
+
+php artisan make:criteria User\MaxId
+```
+
 Here is a simple criteria:
 
 ```php
 <?php
 
-namespace App\Repositories\Criteria\Films;
+namespace App\Repositories\Criteria;
 
 use ZAToday\Repository\Criteria;
 use ZAToday\Repository\Contracts\RepositoryInterface as Repository;
 
-class LengthOverTwoHours extends Criteria {
+class UserMaxId extends Criteria {
 
     /**
      * @param $model
@@ -178,7 +214,7 @@ class LengthOverTwoHours extends Criteria {
      */
     public function apply($model, Repository $repository)
     {
-        $model = $model->where('length', '>', 120);
+        $model = $model->where('id', '<', 5);
         return $model;
     }
 }
@@ -191,24 +227,53 @@ Now, inside you controller class you call pushCriteria method:
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Criteria\Films\LengthOverTwoHours;
-use App\Repositories\FilmsRepository as Film;
+use App\Repositories\Criteria\UserMaxId;
+use App\Repositories\User;
 
-class FilmsController extends Controller {
+class UserController extends Controller {
 
     /**
-     * @var Film
+     * @var User
      */
-    private $film;
+    private $user;
 
-    public function __construct(Film $film) {
+    public function __construct(User $user) {
 
-        $this->film = $film;
+        $this->user = $user;
     }
 
     public function index() {
-        $this->film->pushCriteria(new LengthOverTwoHours());
-        return \Response::json($this->film->all());
+        $this->user->pushCriteria(new UserMaxId);
+        return \Response::json($this->user->all());
+    }
+}
+```
+
+or
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Repositories\Criteria\UserMaxId;
+use App\Repositories\User;
+
+class UserController extends Controller {
+
+    /**
+     * @var User
+     */
+    private $user;
+
+    public function __construct(User $user) {
+
+        $this->user = $user;
+    }
+
+    public function index() {
+        $criteria = new UserMaxId
+        return \Response::json($this->user->getByCriteria($criteria)->all());
     }
 }
 ```

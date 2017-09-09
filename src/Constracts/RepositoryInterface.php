@@ -6,6 +6,8 @@ interface RepositoryInterface {
 
     public function all($columns = array('*'));
 
+    public function get($columns = array('*'));
+
     public function paginate($perPage = 15, $columns = array('*'));
 
     public function create(array $data);
@@ -17,5 +19,4 @@ interface RepositoryInterface {
     public function find($id, $columns = array('*'));
 
     public function findBy($field, $value, $columns = array('*'));
-
 }
