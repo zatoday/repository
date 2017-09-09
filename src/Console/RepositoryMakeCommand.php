@@ -2,6 +2,7 @@
 
 namespace ZAToday\Repository\Console;
 
+use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -28,7 +29,7 @@ class RepositoryMakeCommand extends GeneratorCommand
      */
     protected $type = 'Repository';
 
-        /**
+    /**
      * Execute the console command.
      *
      * @return void
@@ -38,6 +39,23 @@ class RepositoryMakeCommand extends GeneratorCommand
         if (parent::handle() === false && ! $this->option('force')) {
             return;
         }
+        if ($this->option('model')) {
+            $this->createModel();
+        }
+    }
+
+    /**
+     * Create a model for the repository.
+     *
+     * @return void
+     */
+    protected function createModel()
+    {
+        $model = Str::studly(class_basename($this->argument('name')));
+
+        $this->call('make:model', [
+            'name' => "{$model}"
+        ]);
     }
 
     /**
@@ -69,8 +87,7 @@ class RepositoryMakeCommand extends GeneratorCommand
     protected function getOptions()
     {
         return [
-            ['model', 'm', InputOption::VALUE_OPTIONAL, 'Create a new Repository file with add Model class.'],
-            ['force', 'f', InputOption::VALUE_NONE, 'Create the class even if the Repository already exists.'],
+            ['model', 'm', InputOption::VALUE_NONE, 'Create a new Model for the Repository.']
         ];
     }
 
@@ -84,9 +101,6 @@ class RepositoryMakeCommand extends GeneratorCommand
     {
         $class = parent::buildClass($name);
         $modelClass = str_replace('User', $this->getNameInput(),config('auth.providers.users.model'));
-        if ($this->option('model')) {
-            $modelClass = str_replace('User', $this->option('model'),config('auth.providers.users.model'));
-        }
         $class = str_replace('DummyModelClass', $modelClass, $class);
 
         return $class;

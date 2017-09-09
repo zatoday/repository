@@ -28,18 +28,6 @@ class CriteriaMakeCommand extends GeneratorCommand
      */
     protected $type = 'Criteria';
 
-        /**
-     * Execute the console command.
-     *
-     * @return void
-     */
-    public function handle()
-    {
-        if (parent::handle() === false && ! $this->option('force')) {
-            return;
-        }
-    }
-
     /**
      * Get the stub file for the generator.
      *
@@ -58,40 +46,6 @@ class CriteriaMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        if($this->option('model')){
-            return $rootNamespace.'\Repositories\Criteria\\'.$this->option('model');
-        }
         return $rootNamespace.'\Repositories\Criteria';
-    }
-
-        /**
-     * Get the console command options.
-     *
-     * @return array
-     */
-    protected function getOptions()
-    {
-        return [
-            ['model', 'm', InputOption::VALUE_OPTIONAL, 'Create a new Criteria file with add Model class.'],
-            ['force', 'f', InputOption::VALUE_NONE, 'Create the class even if the Criteria already exists.'],
-        ];
-    }
-
-    /**
-     * Build the class with the given name.
-     *
-     * @param  string  $name
-     * @return string
-     */
-    protected function buildClass($name)
-    {
-        $class = parent::buildClass($name);
-        $modelClass = str_replace('User', $this->getNameInput(),config('auth.providers.users.model'));
-        if ($this->option('model')) {
-            $modelClass = str_replace('User', $this->option('model'),config('auth.providers.users.model'));
-        }
-        $class = str_replace('DummyModelClass', $modelClass, $class);
-
-        return $class;
     }
 }
