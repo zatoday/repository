@@ -14,5 +14,25 @@
                 "ZAToday\\Repository\\RepositoryServiceProvider"
             ]
         }
+    },
+    "require": {
+        "php": ">=7.0",
+        "illuminate/support": "^5.5",
+        "illuminate/database": "^5.5",
+        "illuminate/container": "^5.5",
+        "illuminate/console": "^5.5"
+    },
+    "require-dev": {
+        "mockery/mockery": "dev-master@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZAToday\\Repository": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ZAToday\\Repository\\Tests\\": "tests/"
+        }
     }
 }
