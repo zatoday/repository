@@ -59,9 +59,9 @@ class CriteriaMakeCommand extends GeneratorCommand
     protected function getDefaultNamespace($rootNamespace)
     {
         if($this->option('model')){
-            return $rootNamespace.'\Repositories\Criterias\\'.$this->option('model');
+            return $rootNamespace.'\Repositories\Criteria\\'.$this->option('model');
         }
-        return $rootNamespace.'\Repositories\Criterias';
+        return $rootNamespace.'\Repositories\Criteria';
     }
 
         /**
