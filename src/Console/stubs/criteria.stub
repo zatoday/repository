@@ -8,12 +8,14 @@ use ZAToday\Repository\Constracts\RepositoryInterface as Repository;
 class DummyClass extends Criteria {
 
     /**
-     * Apply query to Eloquents
-     * @return query
+     * @param            $model
+     * @param Repository $repository
+     *
+     * @return mixed
      */
     public function apply($model, Repository $repository)
     {
-        $query = $model; //Handle query
+        $query = $model;    //Todo
         return $query;
     }
 }
