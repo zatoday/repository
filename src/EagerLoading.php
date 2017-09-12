@@ -2,8 +2,6 @@
 
 namespace ZAToday\Repository;
 
-use ZAToday\Repository\Constracts\EagerLoadingInterface;
-
 trait  EagerLoading
 {
     /**
