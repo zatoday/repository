@@ -33,4 +33,5 @@ interface CriteriaInterface {
      * @return $this
      */
     public function applyCriteria();
+
 }

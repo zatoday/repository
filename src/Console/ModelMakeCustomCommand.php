@@ -8,9 +8,8 @@ class ModelMakeCustomCommand extends ModelMakeCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        $rootNamespace = config('auth.providers.users.model')
+        return config('auth.providers.users.model')
                         ? str_replace('\User', '',config('auth.providers.users.model'))
                         : $rootNamespace;
-        return $rootNamespace;
     }
 }

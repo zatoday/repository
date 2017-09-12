@@ -6,6 +6,7 @@ use ZAToday\Repository\Repository;
 
 class DummyClass extends Repository
 {
+
     /**
      * @return string
      */

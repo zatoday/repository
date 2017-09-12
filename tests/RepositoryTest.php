@@ -1,4 +1,5 @@
 <?php
+
 namespace ZAToday\Tests\Repositories;
 
 use Mockery;

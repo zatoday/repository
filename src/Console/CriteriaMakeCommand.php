@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputOption;
 
 class CriteriaMakeCommand extends GeneratorCommand
 {
-/**
+    /**
      * The console command name.
      *
      * @var string

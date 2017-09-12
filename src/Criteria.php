@@ -5,6 +5,7 @@ namespace ZAToday\Repository;
 use ZAToday\Repository\Constracts\RepositoryInterface as Repository;
 
 abstract class Criteria {
+
     /**
      * @param $model
      * @param RepositoryInterface $repository

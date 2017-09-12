@@ -9,6 +9,11 @@ trait  EagerLoading
      */
     protected $with;
 
+    /**
+     * [with description]
+     * @param  [type] $relations [description]
+     * @return [type]            [description]
+     */
     public function with($relations) {
         if (is_string($relations)){
             $relations = func_get_args();

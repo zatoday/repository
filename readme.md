@@ -1,10 +1,27 @@
-# Laravel Repository
+# ZAToday Repository
 [![Build Status](https://travis-ci.org/zatoday/repository.svg?branch=master)](https://travis-ci.org/zatoday/repository)
 [![License](https://poser.pugx.org/zatoday/repository/license)](https://packagist.org/packages/zatoday/repository)
 [![Total Downloads](https://poser.pugx.org/zatoday/repository/downloads)](https://packagist.org/packages/zatoday/repository)
 [![Monthly Downloads](https://poser.pugx.org/zatoday/repository/d/monthly)](https://packagist.org/packages/zatoday/repository)
 
-Laravel Repositories is a package for Laravel 5.5 which is used to abstract the database layer. This makes applications much easier to maintain.
+ZAToday Repository is a package for Laravel 5.5 which is used to abstract the database layer. This makes applications much easier to maintain.
+
+## Feature
+
+- [x] all($columns = array('*'))
+- [x] lists($value, $key = null)
+- [x] paginate($perPage = 1, $columns = array('*'));
+- [x] create(array $data)
+- [x] update(array $data, $id, $attribute = "id")
+// if you use mongodb then you'll need to specify primary key $attribute
+- [x] delete($id)
+- [x] find($id, $columns = array('*'))
+- [x] findBy($field, $value, $columns = array('*'))
+- [x] findAllBy($field, $value, $columns = array('*'))
+- [x] findWhere($where, $columns = array('*'))
+// Eager Loading
+- [x] with($relations)
+- [x] Custom `make:model`
 
 ## Installation
 
@@ -104,11 +121,11 @@ The following methods are available:
 
 ```php
 public function all($columns = array('*'))
-public function lists($value, $key = null)
-public function paginate($perPage = 1, $columns = array('*'));
-public function create(array $data)
+public function - [x] lists($value, $key = null)
+public function - [x] paginate($perPage = 1, $columns = array('*'));
+public function - [x] create(array $data)
+public function - [x] update(array $data, $id, $attribute = "id")
 // if you use mongodb then you'll need to specify primary key $attribute
-public function update(array $data, $id, $attribute = "id")
 public function delete($id)
 public function find($id, $columns = array('*'))
 public function findBy($field, $value, $columns = array('*'))

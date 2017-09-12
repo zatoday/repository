@@ -4,6 +4,10 @@ namespace ZAToday\Repository\Constracts;
 
 interface RepositoryInterface {
 
+    /**
+     * @param  array  $columns
+     * @return get
+     */
     public function all($columns = array('*'));
 
     public function get($columns = array('*'));

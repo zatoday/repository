@@ -1,8 +1,8 @@
 {
     "name": "zatoday/repository",
-    "description": "package repository for laravel",
+    "description": "package repository for laravel, all function eloquent, Eager Loading and upgrade make model",
     "type": "library",
-    "keywords": ["laravel","repository","repositories","laravel5.5","laravel5"],
+    "keywords": ["laravel","repository","repositories","laravel5.5","laravel5","model"],
     "support": {
         "issues": "https://github.com/zatoday/repository/issues",
         "source": "https://github.com/zatoday/repository"

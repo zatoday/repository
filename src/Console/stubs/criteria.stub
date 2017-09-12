@@ -5,7 +5,8 @@ namespace DummyNamespace;
 use ZAToday\Repository\Criteria;
 use ZAToday\Repository\Constracts\RepositoryInterface as Repository;
 
-class DummyClass extends Criteria {
+class DummyClass extends Criteria
+{
 
     /**
      * @param            $model

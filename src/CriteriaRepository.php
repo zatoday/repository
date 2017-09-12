@@ -5,6 +5,7 @@ namespace ZAToday\Repository;
 use ZAToday\Repository\Constracts\CriteriaInterface;
 
 class CriteriaRepository implements CriteriaInterface{
+
     /**
      * @var Collection
      */
