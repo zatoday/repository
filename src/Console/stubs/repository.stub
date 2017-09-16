@@ -14,4 +14,26 @@ class DummyClass extends Repository
     {
         return \DummyModelClass::class;
     }
+
+    /**
+     * @return array
+     */
+    public function transform($item)
+    {
+        return [
+            // 'field1'            => $item['field1'],
+            // 'relation_one'        => array_map([$this, 'relationOne'], $item['relation'])
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    // public function relationOne($items)
+    // {
+    //     return [
+    //         // 'field1'            => $item['field1'],
+    //         // 'field2'            => $item['field2']
+    //     ];
+    // }
 }

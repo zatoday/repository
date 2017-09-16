@@ -1,4 +1,5 @@
 # ZAToday Repository
+[![Latest Stable Version](https://poser.pugx.org/zatoday/repository/v/stable)](https://packagist.org/packages/zatoday/repository)
 [![Build Status](https://travis-ci.org/zatoday/repository.svg?branch=master)](https://travis-ci.org/zatoday/repository)
 [![License](https://poser.pugx.org/zatoday/repository/license)](https://packagist.org/packages/zatoday/repository)
 [![Total Downloads](https://poser.pugx.org/zatoday/repository/downloads)](https://packagist.org/packages/zatoday/repository)

@@ -79,7 +79,17 @@ class RepositoryMakeCommand extends GeneratorCommand
         return $rootNamespace.'\Repositories';
     }
 
-        /**
+    /**
+     * Get the desired class name from the input.
+     *
+     * @return string
+     */
+    protected function getNameInput()
+    {
+        return trim($this->argument('name').$this->type);
+    }
+
+    /**
      * Get the console command options.
      *
      * @return array
@@ -100,7 +110,7 @@ class RepositoryMakeCommand extends GeneratorCommand
     protected function buildClass($name)
     {
         $class = parent::buildClass($name);
-        $modelClass = str_replace('User', $this->getNameInput(),config('auth.providers.users.model'));
+        $modelClass = str_replace('User', Str::studly(class_basename($this->argument('name'))), config('auth.providers.users.model'));
         $class = str_replace('DummyModelClass', $modelClass, $class);
 
         return $class;

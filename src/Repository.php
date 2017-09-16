@@ -8,11 +8,12 @@ use ZAToday\Repository\EagerLoading;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Container\Container as App;
 use ZAToday\Repository\CriteriaRepository;
-use ZAToday\Repository\Constracts\RepositoryInterface;
 use ZAtoday\Repository\Exceptions\RepositoryException;
+use ZAToday\Repository\Constracts\RepositoryInterface;
+use ZAToday\Repository\Constracts\TransformerInterface;
 
-abstract class Repository extends CriteriaRepository implements RepositoryInterface {
-    use EagerLoading;
+abstract class Repository extends CriteriaRepository implements RepositoryInterface, TransformerInterface {
+    use EagerLoading, Transformer;
     /**
      * @var App
      */
