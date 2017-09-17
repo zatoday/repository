@@ -25,15 +25,4 @@ class DummyClass extends Repository
             // 'relation_one'        => array_map([$this, 'relationOne'], $item['relation'])
         ];
     }
-
-    /**
-     * @return array
-     */
-    // public function relationOne($items)
-    // {
-    //     return [
-    //         // 'field1'            => $item['field1'],
-    //         // 'field2'            => $item['field2']
-    //     ];
-    // }
 }
