@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputOption;
 
 class RepositoryMakeCommand extends GeneratorCommand
 {
+    use NamespaceConsole;
     /**
      * The console command name.
      *
@@ -51,8 +52,7 @@ class RepositoryMakeCommand extends GeneratorCommand
      */
     protected function createModel()
     {
-        $model = Str::studly(class_basename($this->argument('name')));
-
+        $model = str_replace('Repository', '', Str::studly(class_basename($this->argument('name'))));
         $this->call('make:model', [
             'name' => "{$model}"
         ]);
@@ -76,24 +76,14 @@ class RepositoryMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Repositories';
+        return ($this->getNamespaceApply() ?: $rootNamespace).'\Repositories';
     }
 
     /**
-     * Get the desired class name from the input.
-     *
-     * @return string
-     */
-    protected function getNameInput()
-    {
-        return trim($this->argument('name').$this->type);
-    }
-
-    /**
-     * Get the console command options.
-     *
-     * @return array
-     */
+    * Get the console command options.
+    *
+    * @return array
+    */
     protected function getOptions()
     {
         return [
@@ -110,9 +100,8 @@ class RepositoryMakeCommand extends GeneratorCommand
     protected function buildClass($name)
     {
         $class = parent::buildClass($name);
-        $modelClass = str_replace('User', Str::studly(class_basename($this->argument('name'))), config('auth.providers.users.model'));
-        $class = str_replace('DummyModelClass', $modelClass, $class);
-
+        $class = str_replace('DummyModelClass', $this->getNamespaceApply()
+                        .'\\'.str_replace('Repository', '', basename($name)), $class);
         return $class;
     }
 }

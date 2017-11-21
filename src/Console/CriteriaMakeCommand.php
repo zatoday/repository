@@ -4,9 +4,11 @@ namespace ZAToday\Repository\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
+use ZAToday\Repository\Console\NamespaceConsole;
 
 class CriteriaMakeCommand extends GeneratorCommand
 {
+    use NamespaceConsole;
     /**
      * The console command name.
      *
@@ -46,6 +48,6 @@ class CriteriaMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Repositories\Criteria';
+        return ($this->getNamespaceApply() ?: $rootNamespace).'\Criteria';
     }
 }

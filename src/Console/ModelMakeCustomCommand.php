@@ -6,10 +6,9 @@ use Illuminate\Foundation\Console\ModelMakeCommand;
 
 class ModelMakeCustomCommand extends ModelMakeCommand
 {
+    use NamespaceConsole;
     protected function getDefaultNamespace($rootNamespace)
     {
-        return config('auth.providers.users.model')
-                        ? str_replace('\User', '',config('auth.providers.users.model'))
-                        : $rootNamespace;
+        return $this->getNamespaceApply() ?: $rootNamespace;
     }
 }
