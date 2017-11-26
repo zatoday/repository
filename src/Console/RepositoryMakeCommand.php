@@ -100,8 +100,7 @@ class RepositoryMakeCommand extends GeneratorCommand
     protected function buildClass($name)
     {
         $class = parent::buildClass($name);
-        $class = str_replace('DummyModelClass', $this->getNamespaceApply()
-                        .'\\'.str_replace('Repository', '', basename($name)), $class);
+        $class = str_replace('DummyModelClass', str_replace('\Repositories', '', basename($name)), $class);
         return $class;
     }
 }
